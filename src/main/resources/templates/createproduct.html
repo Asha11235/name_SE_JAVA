@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="starter-template">
+           <div class="row">
+        <!--CREATE NEW MOVIE FORM-->
+        <div class="col-sm-6 col-sm-offset-3">
+            <h3 class="lead">Create a Product</h3>
+
+            <form class="form-horizontal" th:action="@{processProductForm}" method="post"
+                  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="label label-primary control-label" for="name">Product Name</label>
+                    <input id="name" class="form-control" type="text" name="productName"  th:value="${product.productName}"
+                           placeholder="Product Name"></input>
+                </div>
+                <div class="form-group">
+                    <label class="label label-primary control-label" for="name">Product Price</label>
+                    <input id="name" class="form-control" type="number" name="productPrice" th:value="${product?.productPrice}"
+                           placeholder="Product Price"></input>
+                </div>
+                <div class="form-group">
+                    <label class="label label-primary control-label" for="name">Available in Stock</label>
+                    <input id="name" class="form-control" type="number" name="numberofavailableInStock" th:value="${product?.numberofavailableInStock}"
+                           placeholder="Available in Stock"></input>
+                </div>
+                <div class="form-group">
+                    <label class="label label-primary control-label" for="name">Percentage of Sell in this Month</label>
+                    <input id="name" class="form-control" type="number" name="percentageOfSell" th:value="${product?.percentageOfSell}"
+                           placeholder="%"></input>
+                </div>
+                    <input type="submit" />
+               </form>
+        </div>
+    </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
